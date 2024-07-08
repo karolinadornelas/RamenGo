@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           <img src="${API_Ramengo}/images/${item.image}" alt="${item.name}"> /*aqui???*/
           <h4>${item.name}</h4>
           <p>${item.description}</p>
-          <h3>${item.price}</h3>
+          <h3>U$${item.price}</h3>
         <div>    
       `;
   
