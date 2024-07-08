@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   
     button.innerHTML = `
         <div class="option-card">
-          <img src="${API_Ramengo}/images/${item.image}" alt="${item.name}">
+          <img src="${API_Ramengo}/images/${item.image}" alt="${item.name}"> /*aqui???*/
           <h4>${item.name}</h4>
           <p>${item.description}</p>
           <h3>${item.price}</h3>
