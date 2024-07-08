@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   async function createNewOrder() {
     if (!selected_broth_id || !selected_protein_id) {
-      const modal = document.getElementById('myModal');
+      const modal = document.getElementById('msg-modal');
       const modalMessage = document.getElementById('modal-message');
       modal.style.display = 'block';
       modalMessage.textContent = 'Please select a broth and a protein.';
