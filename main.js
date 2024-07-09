@@ -15,7 +15,7 @@ const API_Order = 'https://api.tech.redventures.com.br/orders';
 const key = 'ZtVdh8XQ2U8pWI2gmZ7f796Vh8GllXoN7mr0djNf';
 
 async function optionBroth() {
-  const response = await fetch(`${API_Broths}`, {
+  const response = await fetch(API_Broths, {
     method: 'GET',
     headers: {
       'x-api-key': key
@@ -25,7 +25,7 @@ async function optionBroth() {
 }
 
 async function optionProtein() {
-  const response = await fetch(`${API_Proteins}`, {
+  const response = await fetch(API_Proteins, {
     method: 'GET',
     headers: {
       'x-api-key': key
@@ -35,7 +35,7 @@ async function optionProtein() {
 }
 
 async function createOrder(selected_broth_id, selected_protein_id) {
-  const response = await fetch(`${API_Order}`, {
+  const response = await fetch(API_Order, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -63,28 +63,33 @@ document.addEventListener('DOMContentLoaded', async () => {
     button.className = 'option-card';
     button.dataset.id = item.id;
     button.dataset.type = type;
-  
+
     button.innerHTML = `
-        <div class="option-card">
-          <img src="${API_Ramengo}/images/${item.image}" alt="${item.name}"> /*aqui???*/
-          <h4>${item.name}</h4>
-          <p>${item.description}</p>
-          <h3>U$${item.price}</h3>
-        <div>    
-      `;
-  
+      <div class="option-card" card-active-img="./assets/${item.name}/active.png" card-inactive-img="./assets/${item.name}/inactive.png">
+        <img src="./assets/${item.name}/inactive.png">
+        <h4>${item.name}</h4>
+        <p>${item.description}</p>
+        <h3>U$${item.price}</h3>
+      </div>`;
+
     button.addEventListener('click', () => {
       const chosenOption = button.classList.contains('selected');
-      document.querySelectorAll(`.option-card[data-type="${type}"]`).forEach(b => b.classList.remove('selected'));
+      document.querySelectorAll(`.option-card[data-type="${type}"]`).forEach(b => {
+        b.classList.remove('selected');
+        const inactiveImg = b.querySelector('div').getAttribute('card-inactive-img');
+        b.querySelector('img').src = inactiveImg;
+      });
+
       if (!chosenOption) {
         button.classList.add('selected');
+        const activeImg = button.querySelector('div').getAttribute('card-active-img');
+        button.querySelector('img').src = activeImg;
         if (type === 'broth') {
           selected_broth_id = item.id;
-          console.log('selected brtoh:', selected_broth_id); 
+          console.log('selected brtoh:', selected_broth_id);
         } else {
           selected_protein_id = item.id;
-          console.log('selected broth:', selected_protein_id); 
-          /*só pra conferir*/
+          console.log('selected protein:', selected_protein_id);
         }
       } else {
         if (type === 'broth') {
@@ -94,9 +99,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
       }
     });
+
     return button;
   }
-  
 
   async function loadBroths() {
     const broths = await optionBroth();
@@ -123,28 +128,27 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       const closeButton = document.querySelector('.close');
       closeButton.addEventListener('click', () => {
-        modal.style.display = 'none'; 
+        modal.style.display = 'none';
       });
-  
-      return; 
+
+      return;
     }
-  
+
+    /*teste*/
     const result = await createOrder(selected_broth_id, selected_protein_id);
-    /*só teste*/
     if (result.orderId) {
       mainContent.innerHTML = `
         <h1>Sucesso</h1>
         <p>Obrigado</p>
-        <a href="index.html">Volta</a>
+        <a href="index.html">Voltar</a>
       `;
     } else {
       orderResult.textContent = `Error creating order: ${result.message}`;
     }
   }
-  
-  
-  orderButton.addEventListener('click', createNewOrder);
 
+  orderButton.addEventListener('click', createNewOrder);
   await loadBroths();
   await loadProteins();
+  autoScroll();
 });
