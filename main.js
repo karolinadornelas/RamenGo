@@ -18,8 +18,8 @@ async function optionBroth() {
   const response = await fetch(API_Broths, {
     method: 'GET',
     headers: {
-      'x-api-key': key
-    }
+      'x-api-key': key,
+    },
   });
   return response.json();
 }
@@ -28,25 +28,37 @@ async function optionProtein() {
   const response = await fetch(API_Proteins, {
     method: 'GET',
     headers: {
-      'x-api-key': key
-    }
+      'x-api-key': key,
+    },
   });
   return response.json();
 }
 
-async function createOrder(selected_broth_id, selected_protein_id) {
-  const response = await fetch(API_Order, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': key
-    },
-    body: JSON.stringify({ brothId: selected_broth_id, proteinId: selected_protein_id })
-  });
+async function createOrder(brothId, proteinId) {
+  try {
+      const response = await fetch(API_Order, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+              'x-api-key': key,
+          },
+          body: JSON.stringify({ brothId, proteinId }),
+      });
 
-  console.log('Response from API:', response);
+      const responseData = await response.json();
 
-  return response.json();
+      if (!response.ok) {
+          console.error('Response status:', response.status);
+          console.error('Response body:', responseData);
+          throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      console.log('Response data:', responseData);
+      return responseData;
+  } catch (error) {
+      console.error('Failed to create order:', error);
+      return { error: error.message };
+  }
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -74,15 +86,21 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     button.addEventListener('click', () => {
       const chosenOption = button.classList.contains('selected');
-      document.querySelectorAll(`.option-card[data-type="${type}"]`).forEach(b => {
-        b.classList.remove('selected');
-        const inactiveImg = b.querySelector('div').getAttribute('card-inactive-img');
-        b.querySelector('img').src = inactiveImg;
-      });
+      document
+        .querySelectorAll(`.option-card[data-type='${type}']`)
+        .forEach((b) => {
+          b.classList.remove('selected');
+          const inactiveImg = b
+            .querySelector('div')
+            .getAttribute('card-inactive-img');
+          b.querySelector('img').src = inactiveImg;
+        });
 
       if (!chosenOption) {
         button.classList.add('selected');
-        const activeImg = button.querySelector('div').getAttribute('card-active-img');
+        const activeImg = button
+          .querySelector('div')
+          .getAttribute('card-active-img');
         button.querySelector('img').src = activeImg;
         if (type === 'broth') {
           selected_broth_id = item.id;
@@ -105,7 +123,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   async function loadBroths() {
     const broths = await optionBroth();
-    broths.forEach(broth => {
+    broths.forEach((broth) => {
       const button = createButton(broth, 'broth');
       brothsContainer.appendChild(button);
     });
@@ -113,14 +131,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   async function loadProteins() {
     const proteins = await optionProtein();
-    proteins.forEach(protein => {
+    proteins.forEach((protein) => {
       const button = createButton(protein, 'protein');
       proteinsContainer.appendChild(button);
     });
   }
-
+  
   async function createNewOrder() {
-    if (!selected_broth_id || !selected_protein_id) {
+  if (!selected_broth_id || !selected_protein_id) {
       const modal = document.getElementById('msg-modal');
       const modalMessage = document.getElementById('modal-message');
       modal.style.display = 'block';
@@ -128,27 +146,43 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       const closeButton = document.querySelector('.close');
       closeButton.addEventListener('click', () => {
-        modal.style.display = 'none';
+          modal.style.display = 'none';
       });
 
       return;
-    }
-
-    /*teste*/
-    const result = await createOrder(selected_broth_id, selected_protein_id);
-    if (result.orderId) {
-      mainContent.innerHTML = `
-        <h1>Sucesso</h1>
-        <p>Obrigado</p>
-        <a href="index.html">Voltar</a>
-      `;
-    } else {
-      orderResult.textContent = `Error creating order: ${result.message}`;
-    }
   }
 
+  console.log('Selected broth ID:', selected_broth_id);
+  console.log('Selected protein ID:', selected_protein_id);
+
+  const result = await createOrder(selected_broth_id, selected_protein_id);
+  console.log('Order creation result:', result);
+
+  if (result && result.id) {
+    mainContent.classList.add('hidden');
+    document.getElementById('order-id-confirm').textContent = result.id;
+    document.getElementById('confirmation-page').classList.remove('hidden');
+    document.getElementById('order-image').src = result.image;
+    document.getElementById('order-name').textContent = result.description;
+
+    document.getElementById('new-order').addEventListener('click', () => {
+      document.getElementById('confirmation-page').classList.remove('hidden');;
+      mainContent.classList.remove('hidden');
+      selected_broth_id = null;
+      selected_protein_id = null;
+      brothsContainer.innerHTML = '';
+      proteinsContainer.innerHTML = '';
+      loadBroths();
+      loadProteins();
+    });
+  } else {
+      console.error(`Error creating order: ${result.error || 'Unknown error'}`);
+  }
+}
+
+
   orderButton.addEventListener('click', createNewOrder);
+
   await loadBroths();
   await loadProteins();
-  autoScroll();
 });
