@@ -79,9 +79,32 @@
               <span class="close">&times;</span>
               <p id="modal-message">Please select a broth and a protein.</p>
             </div>
-          </div>
+        </div>
           
-        <div id="order-result"></div>
+    </div>
+
+    <div id="confirmation-page" class="hidden">
+        <div class="order-details">
+            <div class="header-success">
+                <p>ramenGO!</p>
+                <div class="header-success-content">
+                    <img id="order-image" src="" alt="Ramen Image">
+                    <h4>Your Order:</h4>
+                    <h2 id="order-name"></h2>
+                    <p><strong>Order ID:</strong> <span id="order-id-confirm"></span></p>
+                </div>
+            </div>   
+        </div>
+        <div class="order-status">
+            <div class="status-message">
+                <img src="/RamenGo-main/assets/bowing.png" alt="ícone de reverência">
+                <h2 class="japanese-text">どもありがとうございます。</h2>
+                <h2 class="eng-text">Your order is being prepared</h2>
+                <p>Hold on, when you least expect you will be eating your ramen.</p>
+            </div>
+            
+            <button id="new-order">Place New Order</button>
+        </div>
     </div>
   <script src="main.js"></script>
 </body>
