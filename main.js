@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const newOrderButton = document.getElementById("new-order");
       newOrderButton.removeEventListener("click", () => {});
       newOrderButton.addEventListener("click", () => {
-        location.reaload()
+        location.reload()
       });
     } else {
       showModal(`Error creating order: ${result.error || "Unknown error"}`);
