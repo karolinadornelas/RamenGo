@@ -170,6 +170,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       mainContent.style.display = "none";
       document.querySelector(".confirmation-page").style.display = "flex";
       const newOrderButton = document.getElementById("new-order");
+      newOrderButton.removeEventListener("click", () => {});
       newOrderButton.addEventListener("click", () => {
         selected_broth_id = null;
         selected_protein_id = null;
