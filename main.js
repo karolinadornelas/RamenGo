@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  async function createNewOrder() {
+  function createNewOrder() {
     if (!selected_broth_id || !selected_protein_id) {
       showModal("Please select a broth and a protein.");
       return;
@@ -189,7 +189,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       showModal(`Error creating order: ${result.error || "Unknown error"}`);
     }
   }
-  
+  orderButton.removeEventListener("click", () => {});
   orderButton.addEventListener("click", createNewOrder);
 
   await loadBroths();
