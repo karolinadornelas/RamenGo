@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log("Selected broth ID:", selected_broth_id);
     console.log("Selected protein ID:", selected_protein_id);
   
-    const result = await createOrder(selected_broth_id, selected_protein_id);
+    const result = createOrder(selected_broth_id, selected_protein_id);
     console.log("Order creation result:", result);
   
     if (result && result.id) {
