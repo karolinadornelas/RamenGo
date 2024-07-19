@@ -89,7 +89,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log("Inactive image path:", `/assets/${item.name}/inactive.png`);
     console.log("Active image path:", `/assets/${item.name}/active.png`);
 
-    button.removeEventListener ("click", () => {}); 
     button.addEventListener("click", () => {
       const chosenOption = button.classList.contains("selected");
       document
@@ -151,7 +150,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  function createNewOrder() {
+  async function createNewOrder() {
     if (!selected_broth_id || !selected_protein_id) {
       showModal("Please select a broth and a protein.");
       return;
@@ -160,7 +159,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log("Selected broth ID:", selected_broth_id);
     console.log("Selected protein ID:", selected_protein_id);
   
-    const result = createOrder(selected_broth_id, selected_protein_id);
+    const result = await createOrder(selected_broth_id, selected_protein_id);
     console.log("Order creation result:", result);
   
     if (result && result.id) {
