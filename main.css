@@ -372,11 +372,11 @@ nav img {
 
 .order-details p{
     font-family: "M PLUS Rounded 1c";
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 900;
     letter-spacing: 3px;
-    color: rgba(255, 78, 66, 1);
-    margin: 40px 0px 0px 40px;
+    color: var(--red);
+    margin: 30px 0px 0px 30px;
 }
 
 .order-details img {
@@ -396,11 +396,22 @@ nav img {
 }
 
 .header-success-content-info{
-    margin-top: -45px;
+    margin-top: -55px;
 }
 
 .header-success-content-info h4{
     color: white;
+}
+
+.header-success-content-info span{
+    font-family: "M PLUS Rounded 1c";
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.header-success-content-info  p{
+    font-family: "M PLUS Rounded 1c";
+    font-size: 14px;
 }
 
 #order-image{
@@ -413,6 +424,7 @@ nav img {
     margin: 5px;
     line-height: 32px;
     font-family: "M PLUS Rounded 1c";
+    font-weight: 900;
 }
 
 .order-status{
@@ -427,13 +439,12 @@ nav img {
 
 .japanese-text{
     color: var(--yellow);
-    font-family: "M PLUS Rounded 1c"
-
+    font-family: "M PLUS Rounded 1c";
 }
 
 .eng-text{
+    color: var(var(--red)) !important;
     font-family: "M PLUS Rounded 1c";
-    color: var(var(--red));
 }
 
 #new-order {
@@ -492,7 +503,7 @@ nav img {
     }
 
     .yellow-baloon{
-        margin-left: 240px;
+        margin-left: 230px;
         margin-top: -260px;
     }
 
@@ -605,3 +616,409 @@ nav img {
 
     
 }
+
+@media screen and (max-width: 430px) and (max-height: 932px){
+    #main-content{
+        width: 430px;
+        overflow: hidden;
+    }
+
+    nav {
+        width: 430px;
+        display: flex;
+        justify-content: center;
+        padding-bottom: 15px;
+    }
+   
+    #hero-ilustrations{
+        width: 430px;
+        padding: 0;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .elipse{
+        width:310px;
+        height:310px;
+        position: absolute;
+    }
+
+    .delivery img{
+        width: 345px;
+        height: 345px;
+        position: relative;
+        margin-top: 755px;
+        margin-left: 10px;
+    }
+
+    .blue-baloon img{
+        position: absolute;
+        width: 65px;
+        margin-top: 590px;
+        margin-left: 35px;
+        
+    }
+
+    .yellow-baloon{
+        margin-left: 235px;
+        margin-top: -260px;
+    }
+
+    .yellow-baloon img{
+        width: 70px;
+    }
+
+    #hero-bundle{
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+        flex-direction: column-reverse;
+        width: 480px;
+        height: 780px;
+        margin: 5px;
+        padding: 0;
+    }
+
+    .hero-text-bundle{
+        padding: 5px;
+    }
+
+    .hero-text-title{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .hero-text-title h1{
+        width: 250px;
+        position: relative;
+        margin: 20px;
+        padding: 0;
+    }
+
+    .hero-text-title h2{
+        margin: 10px;
+        padding: 0;
+        position: inherit;
+    }
+
+    .hero-text-btn p{
+        margin: 15px;
+        width: 285px;
+        text-align: center;
+        font-size: 15px;
+    }
+
+    .hero-text-btn{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 15px;
+    }
+
+    .hero-text-btn button {
+        display: none;
+    }
+
+    .option-card {
+        padding: 10px;
+        margin-left: 25px;
+    }
+
+    .option-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 5px 4px 15px var(--shadow);
+    }
+
+    .order-instruction h6{
+        width: 350px;
+        font-weight: bold;
+    }
+    
+    .order-bundle{
+        margin-top: 10px;
+        overflow-x: scroll;
+        scrollbar-width: none;
+    }
+
+}
+
+@media screen and (max-width: 480px) and (max-height: 1040px){
+
+    #main-content{
+        width: 480px;
+        overflow: hidden;
+    }
+
+    nav {
+        width: 480px;
+        display: flex;
+        justify-content: center;
+        padding-bottom: 15px;
+    }
+
+    nav img{
+        margin-left: -15px;
+    }
+   
+    #hero-ilustrations{
+        width: 480px;
+        padding: 0;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .elipse{
+        width:380px;
+        height:380px;
+        position: absolute;
+    }
+
+    .delivery img{
+        width: 430px;
+        height: 430px;
+        position: relative;
+        margin-top: 755px;
+        margin-left: 10px;
+    }
+
+    .blue-baloon img{
+        position: absolute;
+        width: 65px;
+        margin-top: 615px;
+        margin-left: 35px;
+        
+    }
+
+    .yellow-baloon{
+        margin-left: 315px;
+        margin-top: -300px;
+    }
+
+    .yellow-baloon img{
+        width: 75px;
+    }
+
+    #hero-bundle{
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+        flex-direction: column-reverse;
+        width: 480px;
+        height: 780px;
+        margin: 5px;
+        padding: 0;
+    }
+
+    .hero-text-bundle{
+        padding: 5px;
+    }
+
+    .hero-text-title{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .hero-text-title h1{
+        width: 250px;
+        position: relative;
+        margin: 20px;
+        padding: 0;
+    }
+
+    .hero-text-title h2{
+        margin: 10px;
+        padding: 0;
+        position: inherit;
+    }
+
+    .hero-text-btn p{
+        margin: 15px;
+        width: 285px;
+        text-align: center;
+        font-size: 15px;
+    }
+
+    .hero-text-btn{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 15px;
+    }
+
+    .hero-text-btn button {
+        display: none;
+    }
+
+    .option-card {
+        padding: 10px;
+        margin-left: 25px;
+    }
+
+    .option-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 5px 4px 15px var(--shadow);
+    }
+
+    .order-instruction h6{
+        width: 350px;
+        font-weight: bold;
+    }
+    
+    .order-bundle{
+        margin-top: 10px;
+        overflow-x: scroll;
+        scrollbar-width: none;
+    }
+
+}
+
+/* @media screen and (max-width: 820px) and (max-height: 1180px){
+    #main-content{
+        width: 820px;
+        overflow: hidden;
+    }
+
+    nav {
+        width: 820px;
+        display: flex;
+        justify-content: center;
+        padding-bottom: 15px;
+    }
+   
+    #hero-ilustrations{
+        width: 480px;
+        padding: 0;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .elipse{
+        width:410px;
+        height:410px;
+        position: absolute;
+    }
+
+    .delivery img{
+        width: 480px;
+        height: 480px;
+        position: relative;
+        margin-top: 755px;
+        margin-left: 10px;
+    }
+
+    .blue-baloon img{
+        position: absolute;
+        width: 75px;
+        margin-top: 615px;
+        margin-left: 35px;
+        
+    }
+
+    .yellow-baloon{
+        margin-left: 355px;
+        margin-top: -320px;
+    }
+
+    .yellow-baloon img{
+        width: 75px;
+    }
+
+    #hero-bundle{
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+        flex-direction: column-reverse;
+        width: 820px;
+        height: 850px;
+        margin: 10px;
+        padding: 0;
+    }
+
+    .hero-text-bundle{
+        padding: 5px;
+    }
+
+    .hero-text-title{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .hero-text-title h1{
+        width: 250px;
+        position: relative;
+        margin: 20px;
+        padding: 0;
+    }
+
+    .hero-text-title h2{
+        margin: 10px;
+        padding: 0;
+        position: inherit;
+    }
+
+    .hero-text-btn p{
+        margin: 15px;
+        width: 285px;
+        text-align: center;
+        font-size: 15px;
+    }
+
+    .hero-text-btn{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 15px;
+    }
+
+    .hero-text-btn button {
+        display: none;
+    }
+
+    .option-card {
+        padding: 10px;
+        margin-left: 25px;
+    }
+
+    .option-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 5px 4px 15px var(--shadow);
+    }
+
+    .order-instruction h6{
+        width: 350px;
+        font-weight: bold;
+    }
+    
+    .order-bundle{
+        margin-top: 10px;
+        overflow-x: scroll;
+        scrollbar-width: none;
+    }
+} */
