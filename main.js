@@ -179,6 +179,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         loadProteins();
   
         mainContent.style.display = "block";
+        document.querySelector(".order-bundle").html("");
         document.querySelector(".confirmation-page").style.display = "none";
       });
     } else {
