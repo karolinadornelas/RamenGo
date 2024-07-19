@@ -35,9 +35,9 @@ async function optionProtein() {
 }
 
 
-async function createOrder(brothId, proteinId) {
+function createOrder(brothId, proteinId) {
   try {
-    const response = await fetch(API_Order, {
+    const response = fetch(API_Order, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
