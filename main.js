@@ -80,8 +80,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     button.dataset.type = type;
 
     button.innerHTML = `
-      <div class="option-card" card-active-img="./assets/${item.name}/active.png" card-inactive-img="./assets/${item.name}/inactive.png">
-        <img src="./assets/${item.name}/inactive.png">
+      <div class="option-card" card-active-img="/assets/${item.name}/active.png" card-inactive-img="/assets/${item.name}/inactive.png">
+        <img src="/assets/${item.name}/inactive.png">
         <h4>${item.name}</h4>
         <p>${item.description}</p>
         <h3>U$${item.price}</h3>
