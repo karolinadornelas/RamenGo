@@ -172,17 +172,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const newOrderButton = document.getElementById("new-order");
       newOrderButton.removeEventListener("click", () => {});
       newOrderButton.addEventListener("click", () => {
-        selected_broth_id = null;
-        selected_protein_id = null;
-        brothsContainer.innerHTML = "";
-        proteinsContainer.innerHTML = "";
-        loadBroths();
-        loadProteins();
-
-        console.log('loadBroths');  
-        mainContent.style.display = "block";
-        document.querySelector(".order-bundle").innerHTML="";
-        document.querySelector(".confirmation-page").style.display = "none";
+        location.reaload()
       });
     } else {
       showModal(`Error creating order: ${result.error || "Unknown error"}`);
