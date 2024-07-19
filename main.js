@@ -35,9 +35,9 @@ async function optionProtein() {
 }
 
 
-function createOrder(brothId, proteinId) {
+async function createOrder(brothId, proteinId) {
   try {
-    const response = fetch(API_Order, {
+    const response = await fetch(API_Order, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log("Inactive image path:", `/assets/${item.name}/inactive.png`);
     console.log("Active image path:", `/assets/${item.name}/active.png`);
 
-    
+    button.removeEventListener ("click", () => {}); 
     button.addEventListener("click", () => {
       const chosenOption = button.classList.contains("selected");
       document
