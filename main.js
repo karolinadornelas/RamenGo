@@ -81,11 +81,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     button.innerHTML = `
       <div class="option-card" card-active-img="/assets/${item.name}/active.png" card-inactive-img="/assets/${item.name}/inactive.png">
-        <img src="/assets/${item.name}/inactive.png">
+        <img src="/assets/${item.name}/inactive.png" alt="${item.name}">
         <h4>${item.name}</h4>
         <p>${item.description}</p>
         <h3>U$${item.price}</h3>
       </div>`;
+    console.log("Inactive image path:", `/assets/${item.name}/inactive.png`);
+    console.log("Active image path:", `/assets/${item.name}/active.png`);
 
     button.addEventListener("click", () => {
       const chosenOption = button.classList.contains("selected");
