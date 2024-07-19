@@ -46,7 +46,7 @@ function createOrder(brothId, proteinId) {
       body: JSON.stringify({ brothId, proteinId }),
     });
 
-    const responseData = await response.json();
+    const responseData = response.json();
 
     if (!response.ok) {
       console.error("Response status:", response.status);
