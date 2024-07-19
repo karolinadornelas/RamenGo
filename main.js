@@ -89,6 +89,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log("Inactive image path:", `/assets/${item.name}/inactive.png`);
     console.log("Active image path:", `/assets/${item.name}/active.png`);
 
+    
     button.addEventListener("click", () => {
       const chosenOption = button.classList.contains("selected");
       document
@@ -178,7 +179,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         proteinsContainer.innerHTML = "";
         loadBroths();
         loadProteins();
-  
+
+        console.log('loadBroths');  
         mainContent.style.display = "block";
         document.querySelector(".order-bundle").innerHTML="";
         document.querySelector(".confirmation-page").style.display = "none";
