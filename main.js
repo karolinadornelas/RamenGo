@@ -1,24 +1,24 @@
 function autoScroll() {
-  const orderNowButton = document.getElementById('orderNow');
-  orderNowButton.addEventListener('click', function () {
-    const brothOrderSection = document.getElementById('broth-order');
+  const orderNowButton = document.getElementById("orderNow");
+  orderNowButton.addEventListener("click", function () {
+    const brothOrderSection = document.getElementById("broth-order");
     if (brothOrderSection) {
-      brothOrderSection.scrollIntoView({ behavior: 'smooth' });
+      brothOrderSection.scrollIntoView({ behavior: "smooth" });
     }
   });
 }
 
-const API_Ramengo = 'https://api.tech.redventures.com.br';
-const API_Broths = 'https://api.tech.redventures.com.br/broths';
-const API_Proteins = 'https://api.tech.redventures.com.br/proteins';
-const API_Order = 'https://api.tech.redventures.com.br/orders';
-const key = 'ZtVdh8XQ2U8pWI2gmZ7f796Vh8GllXoN7mr0djNf';
+const API_Ramengo = "https://api.tech.redventures.com.br";
+const API_Broths = `${API_Ramengo}/broths`;
+const API_Proteins = `${API_Ramengo}/proteins`;
+const API_Order = `${API_Ramengo}/orders`;
+const key = "ZtVdh8XQ2U8pWI2gmZ7f796Vh8GllXoN7mr0djNf";
 
 async function optionBroth() {
   const response = await fetch(API_Broths, {
-    method: 'GET',
+    method: "GET",
     headers: {
-      'x-api-key': key,
+      "x-api-key": key,
     },
   });
   return response.json();
@@ -26,53 +26,56 @@ async function optionBroth() {
 
 async function optionProtein() {
   const response = await fetch(API_Proteins, {
-    method: 'GET',
+    method: "GET",
     headers: {
-      'x-api-key': key,
+      "x-api-key": key,
     },
   });
   return response.json();
 }
 
+
 async function createOrder(brothId, proteinId) {
   try {
-      const response = await fetch(API_Order, {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-              'x-api-key': key,
-          },
-          body: JSON.stringify({ brothId, proteinId }),
-      });
+    const response = await fetch(API_Order, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": key,
+      },
+      body: JSON.stringify({ brothId, proteinId }),
+    });
 
-      const responseData = await response.json();
+    const responseData = await response.json();
 
-      if (!response.ok) {
-          console.error('Response status:', response.status);
-          console.error('Response body:', responseData);
-          throw new Error(`HTTP error! status: ${response.status}`);
-      }
+    if (!response.ok) {
+      console.error("Response status:", response.status);
+      console.error("Response body:", responseData);
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
 
-      console.log('Response data:', responseData);
-      return responseData;
+    console.log("Response data:", responseData);
+    return responseData;
   } catch (error) {
-      console.error('Failed to create order:', error);
-      return { error: error.message };
+    console.error("Failed to create order:", error);
+    return { error: error.message };
   }
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
-  const brothsContainer = document.getElementById('broths');
-  const proteinsContainer = document.getElementById('proteins');
-  const orderButton = document.getElementById('create-order');
-  const orderResult = document.getElementById('order-result');
-  const mainContent = document.getElementById('main-content');
+document.addEventListener("DOMContentLoaded", async () => {
+  const brothsContainer = document.getElementById("broths");
+  const proteinsContainer = document.getElementById("proteins");
+  const orderButton = document.getElementById("create-order");
+  const mainContent = document.getElementById("main-content");
+  const modal = document.getElementById("msg-modal");
+  const modalMessage = document.getElementById("modal-message");
+  const closeButton = document.querySelector(".close");
   let selected_broth_id = null;
   let selected_protein_id = null;
 
   function createButton(item, type) {
-    const button = document.createElement('div');
-    button.className = 'option-card';
+    const button = document.createElement("div");
+    button.className = "option-card";
     button.dataset.id = item.id;
     button.dataset.type = type;
 
@@ -84,33 +87,33 @@ document.addEventListener('DOMContentLoaded', async () => {
         <h3>U$${item.price}</h3>
       </div>`;
 
-    button.addEventListener('click', () => {
-      const chosenOption = button.classList.contains('selected');
+    button.addEventListener("click", () => {
+      const chosenOption = button.classList.contains("selected");
       document
         .querySelectorAll(`.option-card[data-type='${type}']`)
         .forEach((b) => {
-          b.classList.remove('selected');
+          b.classList.remove("selected");
           const inactiveImg = b
-            .querySelector('div')
-            .getAttribute('card-inactive-img');
-          b.querySelector('img').src = inactiveImg;
+            .querySelector("div")
+            .getAttribute("card-inactive-img");
+          b.querySelector("img").src = inactiveImg;
         });
 
       if (!chosenOption) {
-        button.classList.add('selected');
+        button.classList.add("selected");
         const activeImg = button
-          .querySelector('div')
-          .getAttribute('card-active-img');
-        button.querySelector('img').src = activeImg;
-        if (type === 'broth') {
+          .querySelector("div")
+          .getAttribute("card-active-img");
+        button.querySelector("img").src = activeImg;
+        if (type === "broth") {
           selected_broth_id = item.id;
-          console.log('selected brtoh:', selected_broth_id);
+          console.log("selected broth:", selected_broth_id);
         } else {
           selected_protein_id = item.id;
-          console.log('selected protein:', selected_protein_id);
+          console.log("selected protein:", selected_protein_id);
         }
       } else {
-        if (type === 'broth') {
+        if (type === "broth") {
           selected_broth_id = null;
         } else {
           selected_protein_id = null;
@@ -124,7 +127,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   async function loadBroths() {
     const broths = await optionBroth();
     broths.forEach((broth) => {
-      const button = createButton(broth, 'broth');
+      const button = createButton(broth, "broth");
       brothsContainer.appendChild(button);
     });
   }
@@ -132,56 +135,56 @@ document.addEventListener('DOMContentLoaded', async () => {
   async function loadProteins() {
     const proteins = await optionProtein();
     proteins.forEach((protein) => {
-      const button = createButton(protein, 'protein');
+      const button = createButton(protein, "protein");
       proteinsContainer.appendChild(button);
     });
   }
-  
-  async function createNewOrder() {
-  if (!selected_broth_id || !selected_protein_id) {
-      const modal = document.getElementById('msg-modal');
-      const modalMessage = document.getElementById('modal-message');
-      modal.style.display = 'block';
-      modalMessage.textContent = 'Please select a broth and a protein.';
 
-      const closeButton = document.querySelector('.close');
-      closeButton.addEventListener('click', () => {
-          modal.style.display = 'none';
-      });
-
-      return;
-  }
-
-  console.log('Selected broth ID:', selected_broth_id);
-  console.log('Selected protein ID:', selected_protein_id);
-
-  const result = await createOrder(selected_broth_id, selected_protein_id);
-  console.log('Order creation result:', result);
-
-  if (result && result.id) {
-    mainContent.classList.add('hidden');
-    document.getElementById('order-id-confirm').textContent = result.id;
-    document.getElementById('confirmation-page').classList.remove('hidden');
-    document.getElementById('order-image').src = result.image;
-    document.getElementById('order-name').textContent = result.description;
-
-    document.getElementById('new-order').addEventListener('click', () => {
-      document.getElementById('confirmation-page').classList.remove('hidden');;
-      mainContent.classList.remove('hidden');
-      selected_broth_id = null;
-      selected_protein_id = null;
-      brothsContainer.innerHTML = '';
-      proteinsContainer.innerHTML = '';
-      loadBroths();
-      loadProteins();
+  function showModal(message) {
+    modal.style.display = "block";
+    modalMessage.textContent = message;
+    closeButton.addEventListener("click", () => {
+      modal.style.display = "none";
     });
-  } else {
-      console.error(`Error creating order: ${result.error || 'Unknown error'}`);
   }
-}
 
-
-  orderButton.addEventListener('click', createNewOrder);
+  async function createNewOrder() {
+    if (!selected_broth_id || !selected_protein_id) {
+      showModal("Please select a broth and a protein.");
+      return;
+    }
+  
+    console.log("Selected broth ID:", selected_broth_id);
+    console.log("Selected protein ID:", selected_protein_id);
+  
+    const result = await createOrder(selected_broth_id, selected_protein_id);
+    console.log("Order creation result:", result);
+  
+    if (result && result.id) {
+      document.getElementById("order-id-confirm").textContent = result.id;
+      document.getElementById("order-image").src = result.image;
+      document.getElementById("order-name").textContent = result.description;
+  
+      mainContent.style.display = "none";
+      document.querySelector(".confirmation-page").style.display = "flex";
+      const newOrderButton = document.getElementById("new-order");
+      newOrderButton.addEventListener("click", () => {
+        selected_broth_id = null;
+        selected_protein_id = null;
+        brothsContainer.innerHTML = "";
+        proteinsContainer.innerHTML = "";
+        loadBroths();
+        loadProteins();
+  
+        mainContent.style.display = "block";
+        document.querySelector(".confirmation-page").style.display = "none";
+      });
+    } else {
+      showModal(`Error creating order: ${result.error || "Unknown error"}`);
+    }
+  }
+  
+  orderButton.addEventListener("click", createNewOrder);
 
   await loadBroths();
   await loadProteins();

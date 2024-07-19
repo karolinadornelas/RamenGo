@@ -1,111 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="src/assets/balao-azul.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="main.css" />
     <title>RamenGo!</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="main-content">
-        <header>
-            <nav>
-                <img src="./assets/logo.png" alt="Logo Ramen GO!">
-            </nav>
-            <div id="hero-bundle">
-                <div class="hero-text-bundle">
-                    <div class="hero-text-title">
-                        <h1>ラーメン</h1>
-                        <h2>go!</h2>
-                    </div>
-                    
-                    <div class="hero-text-btn">
-                        <p>Enjoy a good ramen in the comfort of your house. 
-                        Create your own ramen and choose your favorite flavour
-                        combination!</p>
-                        <button id="orderNow" onclick="autoScroll()">order now<i class="fa-solid fa-arrow-right"></i></button>
-                    </div>
-                </div>
+      <header>
+        <nav>
+          <img src="./assets/logo.png" alt="Logo Ramen GO!" />
+        </nav>
+        <div id="hero-bundle">
+          <div class="hero-text-bundle">
+            <div class="hero-text-title">
+              <h1>ラーメン</h1>
+              <h2>go!</h2>
+            </div>
 
-                <div id="hero-ilustrations">
-                    <div class="elipse"></div>
-                    
-                    <div class="hero-ilustrations-bundle">
-                        <div class="blue-baloon">
-                            <img src="./assets/balao-azul.png" alt="Ilustração balão azul">
-                        </div>
-                        <div class="delivery">
-                            <img src="./assets/entregadora.png" alt="Ilustração entregadora">
-                        </div>
-                        <div class="yellow-baloon">
-                            <img src="./assets/balao-amarelo.png" alt="Ilustração balão amarelo">
-                        </div>
-                    </div>
-                </div>
+            <div class="hero-text-btn">
+              <p>
+                Enjoy a good ramen in the comfort of your house. Create your own
+                ramen and choose your favorite flavour combination!
+              </p>
+              <button id="orderNow" onclick="autoScroll()">
+                order now<i class="fa-solid fa-arrow-right"></i>
+              </button>
             </div>
-        </header>
+          </div>
 
-        
-        <div id="broth-order">
-            <div class="order-instruction">
-                <h3>First things first: select your favorite broth.</h3>
-                <h6>It will give the whole flavor on your ramen soup.</h6>
+          <div id="hero-ilustrations">
+            <div class="elipse"></div>
+
+            <div class="hero-ilustrations-bundle">
+              <div class="blue-baloon">
+                <img
+                  src="./assets/balao-azul.png"
+                  alt="Ilustração balão azul"
+                />
+              </div>
+              <div class="delivery">
+                <img
+                  src="./assets/entregadora.png"
+                  alt="Ilustração entregadora"
+                />
+              </div>
+              <div class="yellow-baloon">
+                <img
+                  src="./assets/balao-amarelo.png"
+                  alt="Ilustração balão amarelo"
+                />
+              </div>
             </div>
-                
-            <div id="broths" class="order-bundle"></div>
+          </div>
         </div>
-            
-        <div id="meat-order">
-            <div class="order-instruction">
-                <h3>It's time to choose (or not) your meat!</h3>
-                <h6>Some people love, some don't. We have options for all tastes.</h6>
-            </div>
-            
-            <div id="proteins" class="order-bundle">
-            </div>
+      </header>
+
+      <div id="broth-order">
+        <div class="order-instruction">
+          <h3>First things first: select your favorite broth.</h3>
+          <h6>It will give the whole flavor on your ramen soup.</h6>
         </div>
-    
-        <div id="btn-checkout">
-            <button id="create-order">place my order<i class="fa-solid fa-arrow-right"></i> </button>
+
+        <div id="broths" class="order-bundle"></div>
+      </div>
+
+      <div id="meat-order">
+        <div class="order-instruction">
+          <h3>It's time to choose (or not) your meat!</h3>
+          <h6>Some people love, some don't. We have options for all tastes.</h6>
         </div>
-        <div id="msg-modal" class="modal">
-            <div class="modal-content">
-              <span class="close">&times;</span>
-              <p id="modal-message">Please select a broth and a protein.</p>
-            </div>
+
+        <div id="proteins" class="order-bundle"></div>
+      </div>
+
+      <div id="btn-checkout">
+        <button id="create-order">
+          place my order<i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+      <div id="msg-modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p id="modal-message">Please select a broth and a protein.</p>
         </div>
-          
+      </div>
     </div>
-
-    <div id="confirmation-page" class="hidden">
-        <div class="order-details">
-            <div class="header-success">
-                <p>ramenGO!</p>
-                <div class="header-success-content">
-                    <img id="order-image" src="" alt="Ramen Image">
-                    <h4>Your Order:</h4>
-                    <h2 id="order-name"></h2>
-                    <p><strong>Order ID:</strong> <span id="order-id-confirm"></span></p>
-                </div>
-            </div>   
-        </div>
-        <div class="order-status">
-            <div class="status-message">
-                <img src="/RamenGo-main/assets/bowing.png" alt="ícone de reverência">
-                <h2 class="japanese-text">どもありがとうございます。</h2>
-                <h2 class="eng-text">Your order is being prepared</h2>
-                <p>Hold on, when you least expect you will be eating your ramen.</p>
+<!-- order confirmation -->
+    <div class="confirmation-page">
+      <div class="order-details">
+        <p>ramenGO!</p>
+        <div class="header-success">
+          <div class="header-success-content">
+            <img id="order-image" src="" alt="Ramen Image" />
+            <div class="header-success-content-info">
+              <h4>Your Order:</h4>
+              <h2 id="order-name"></h2>
+              <p>
+                <strong>Order ID:</strong> <span id="order-id-confirm"></span>
+              </p>
             </div>
-            
-            <button id="new-order">Place New Order</button>
+          </div>
         </div>
+      </div>
+
+      <div class="order-status">
+        <div class="status-message">
+          <img src="/assets/bowing.png" alt="ícone de reverência" />
+          <h2 class="japanese-text">どもありがとうございます。</h2>
+          <h2 class="eng-text">Your order is being prepared</h2>
+          <p>Hold on, when you least expect you will be eating your ramen.</p>
+        </div>
+        <button id="new-order">
+          place new order<i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+
     </div>
-  <script src="main.js"></script>
-</body>
+    <script src="main.js"></script>
+  </body>
 </html>

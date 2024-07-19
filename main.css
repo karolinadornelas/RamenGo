@@ -4,9 +4,10 @@
     --yellow: #ffc024;
     --black: #000000;
     --blue: #1820ef;
-    --white: #fafaed;
-    --dark-white: #e0dbbf;
+    --darkened-white: #FAFAED;
     --gray: #c5c5c5;
+    --shadow: #e0dbbf99;
+    --white: #fff;
 }
 
 html,
@@ -14,12 +15,12 @@ body {
     margin: 0 auto;
     padding: 0 auto;
     font-family: "M PLUS Rounded 1c", sans-serif;
-
+    background-color: var(--darkened-white);
 }
 
 header {
     display: block;
-    background-image: url(/RamenGo-main/assets/red-pattern-main.png);
+    background-image: url(/assets/red-pattern-main.png);
 }
 
 nav img {
@@ -32,7 +33,6 @@ nav img {
 #hero-bundle {
     display: flex;
     justify-content: center;
-    /* border: 1px solid white; */
     margin-left: -150px;
 }
 
@@ -49,11 +49,9 @@ nav img {
 
 .hero-text-bundle h1 {
     width: 48px;
-    /* height: 224px; */
     margin-top: 156px;
     margin-left: 264px;
     font-family: "M PLUS Rounded 1c", sans-serif;
-    ;
     font-size: 48px;
     font-weight: 900;
     line-height: 56px;
@@ -64,7 +62,6 @@ nav img {
 
 .hero-text-bundle h2 {
     width: 308px;
-    /* height: 100px; */
     margin-top: 280px;
     font-family: "M PLUS Rounded 1c";
     font-size: 160px;
@@ -77,14 +74,11 @@ nav img {
 }
 
 .hero-text-btn {
-    /* border: 1px solid white; */
     margin-top: -120px;
 }
 
 .hero-text-btn p {
     width: 201px;
-    /* height: 124px; */
-    /* margin-top: 404px; */
     position: relative;
     margin-left: 280px;
     font-family: "M PLUS Rounded 1c";
@@ -117,18 +111,36 @@ nav img {
     cursor: pointer;
 }
 
+#new-order{
+    width: 250px;
+    height: 60px;
+    border-radius: 50px;
+    border: none;
+    background-color: var(--blue);
+    color: var(--white);
+    font-family: "M PLUS Rounded 1c";
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 20.79px;
+    letter-spacing: 1.7799999713897705px;
+}
+
+#new-order i{
+    color: var(--yellow);
+    font-size: 20px;
+}
+
 .hero-text-btn button i {
     color: var(--yellow);
     font-size: 20px;
 }
 
-/* .hero-text-btn button:hover{
-        background-color: white;
-        color: var(--blue);
-    } */
-
 #hero-ilustrations {
-    /* border: 1px solid white; */
     width: 673px;
     height: 683px;
     margin-top: 38px;
@@ -144,7 +156,6 @@ nav img {
 }
 
 .hero-ilustrations-bundle {
-    /* border: 1px solid black; */
     margin-top: -630px;
 }
 
@@ -168,7 +179,6 @@ nav img {
 }
 
 .order-bundle {
-    /* border: 1px solid black; */
     margin-top: 100px;
     display: flex;
     justify-content: space-evenly;
@@ -204,35 +214,44 @@ nav img {
 }
 
 .option-card {
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     width: 320px;
     height: 316px;
-    box-shadow: 0px 4px 12px 0px rgba(224, 219, 191, 0.6);
-    border-radius: 10px;
+    border-radius: 11px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    cursor: pointer;
+    box-shadow: -1px 2px 12px var(--shadow);
+    transition: transform .25s, box-shadow .25s;
+}
+
+.option-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 5px 4px 15px var(--shadow);
+}
+
+.option-card img{
+    margin-top: 25px;
 }
 
 .option-card h4 {
     font-family: Rounded Mplus 1c;
     font-size: 20px;
     font-weight: 900;
-    line-height: 24px;
     text-align: center;
-    margin: 15px;
     color: var(--blue);
 }
 
 .option-card p {
     font-family: Rounded Mplus 1c;
     font-size: 14px;
-    font-weight: 400;
-    line-height: 16px;
+    width: 275px;
+    font-weight: 600;
     text-align: center;
-    padding: 15px 25px;
     color: black;
+    margin: -15px;
 }
 
 .option-card h3 {
@@ -240,9 +259,7 @@ nav img {
     font-family: Rounded Mplus 1c;
     font-size: 20px;
     font-weight: 900;
-    line-height: 24px;
     text-align: center;
-
 }
 
 .option-card.selected {
@@ -292,7 +309,6 @@ nav img {
 
 .modal {
     display: none;
-    /* Ocultar por padrão */
     position: fixed;
     z-index: 1;
     left: 0;
@@ -301,7 +317,6 @@ nav img {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
-    /* Fundo semi-transparente */
 }
 
 .modal-content {
@@ -325,99 +340,89 @@ nav img {
     cursor: pointer;
 }
 
-#confirmation-page{
-    width: 100%;
-    height: 100vh;
-    margin: 0 auto;
-    padding: 0 auto;
-    display: flex;
-    justify-content: space-between;
-}
-.hidden {
-    display: none;
-}
 
-.order-details {
-    border: 1px solid green;
-}
-
-.order-details img {
-    width: 300px;
-    height: auto;
-}
-
-.order-status {
-    display: flex;
-    flex-direction: column;
-    width: 50vw;
-    align-items: center;
-    text-align: center;
-}
-
-#new-order {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
+#orderNow:hover,
 #new-order:hover {
     background-color: #0056b3;
 }
 
-.header-success{
-    background-image: url(/RamenGo-main/assets/blue-pattern.png);
-    background-size: contain;
+/*confirmation page*/
+
+.hidden {
+    display: none;
+}
+
+.confirmation-page{
+    width: 100vw;
     height: 100vh;
-    width: 50vw;
     margin: 0 auto;
-    padding: 0;
-    border: 1px solid green;
+    padding: 0 auto;
+    display: none;
+    justify-content: space-between;
+    overflow: hidden;
 }
 
-.header-success-content{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid green;
+.order-details {
+    background-image: url(/assets/blue-pattern.png);
+    background-size: contain;
+    display: block;
+    width: 50vw;
+    height: 100vh;
 }
 
-.header-success-content h4{
-    color: var(--white);
+.order-details p{
     font-family: "M PLUS Rounded 1c";
-    font-size: 20px;
-    font-weight: 900;
-    line-height: 24px;
-    text-align: center;
-}
-
-.header-success-content p{
     font-size: 16px;
-    font-family: "M PLUS Rounded 1c";
-    font-weight: bold;
-}
-
-.header-success-content img{
-}
-.header-success p{
-    font-family: "M PLUS Rounded 1c";
-    font-size: 20px;
     font-weight: 900;
     letter-spacing: 3px;
     color: rgba(255, 78, 66, 1);
-    margin: 10px;
+    margin: 40px 0px 0px 40px;
+}
+
+.order-details img {
+    width: 375px;
+    height: auto;
+}
+
+.header-success{
+    height: 100vh;
+    width: 50vw;
+    margin-top: -55px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.header-success-content-info{
+    margin-top: -45px;
+}
+
+.header-success-content-info h4{
+    color: white;
+}
+
+#order-image{
+    width: 375px;
 }
 
 #order-name{
-    font-size: 1.5rem;
+    font-size: 32px;
     color: var(--yellow);
-    margin-top: 16px;
-    margin-bottom: 30px;
+    margin: 5px;
     line-height: 32px;
-    font-family: "M PLUS Rounded 1c"
+    font-family: "M PLUS Rounded 1c";
+}
+
+.order-status{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+    height: 100vh;
+    text-align: center;
 }
 
 .japanese-text{
@@ -429,4 +434,174 @@ nav img {
 .eng-text{
     font-family: "M PLUS Rounded 1c";
     color: var(var(--red));
+}
+
+#new-order {
+    border-radius: 50px;
+    background-color: var(--blue);
+    color: var(--darkened-white);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 393px) and (max-height: 852px){
+    #main-content{
+        width: 400px;
+        overflow: hidden;
+    }
+
+    nav {
+        width: 350px;
+        display: flex;
+        justify-content: center;
+        margin-top: -25px;
+        padding: 10px;
+    }
+   
+    #hero-ilustrations{
+        width: 400px;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .elipse{
+        width: 310px;
+        height: 310px;
+        position: absolute;
+    }
+
+    .delivery img{
+        width: 350px;
+        height: 350px;
+        position: relative;
+        margin-top: 755px;
+    }
+
+    .blue-baloon img{
+        position: absolute;
+        width: 65px;
+        margin-top: 595px;
+        margin-left: 20px;
+        
+    }
+
+    .yellow-baloon{
+        margin-left: 240px;
+        margin-top: -260px;
+    }
+
+    .yellow-baloon img{
+        width: 75px;
+    }
+
+    #hero-bundle{
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+        flex-direction: column-reverse;
+        width: 400px;
+        height: 780px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .hero-text-bundle{
+        padding: 15px;
+    }
+
+    .hero-text-title{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .hero-text-title h1{
+        width: 250px;
+        position: relative;
+        margin: 20px;
+        padding: 0;
+    }
+
+    .hero-text-title h2{
+        margin: 10px;
+        padding: 0;
+        position: inherit;
+    }
+
+    .hero-text-btn p{
+        margin: 15px;
+        width: 285px;
+        text-align: center;
+        font-size: 15px;
+    }
+
+    .hero-text-btn{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 15px;
+    }
+
+    .hero-text-btn button {
+        display: none;
+    }
+
+    .order-instruction{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    .order-instruction h3{
+        font-size: 28px;
+    }
+
+    .option-card {
+        padding: 10px;
+        margin-left: 25px;
+    }
+
+    .option-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 5px 4px 15px var(--shadow);
+    }
+
+    .order-instruction h6{
+        width: 350px;
+        font-weight: bold;
+    }
+    
+    .order-bundle{
+        margin-top: 10px;
+        overflow-x: scroll;
+        scrollbar-width: none;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        width: 100%;
+        padding: 15% auto;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    /*confirmation page*/
+
+    
 }
