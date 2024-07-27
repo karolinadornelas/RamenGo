@@ -1,4 +1,4 @@
-:root{
+:root {
     --red: #ff4e42;
     --dark-red: #730000;
     --yellow: #ffc024;
@@ -111,7 +111,7 @@ nav img {
     cursor: pointer;
 }
 
-#new-order{
+#new-order {
     width: 250px;
     height: 60px;
     border-radius: 50px;
@@ -130,7 +130,7 @@ nav img {
     letter-spacing: 1.7799999713897705px;
 }
 
-#new-order i{
+#new-order i {
     color: var(--yellow);
     font-size: 20px;
 }
@@ -232,7 +232,7 @@ nav img {
     box-shadow: 5px 4px 15px var(--shadow);
 }
 
-.option-card img{
+.option-card img {
     margin-top: 25px;
 }
 
@@ -285,7 +285,7 @@ nav img {
     align-content: center;
 }
 
-#create-order {
+.inactive-button {
     width: 213px;
     height: 60px;
     border-radius: 50px;
@@ -304,6 +304,29 @@ nav img {
     text-align: left;
     text-transform: uppercase;
     background-color: rgba(197, 197, 197, 1);
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.active-button {
+    width: 213px;
+    height: 60px;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    font-family: "M PLUS Rounded 1c";
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin: 55px 0;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 20.79px;
+    letter-spacing: 1.7799999713897705px;
+    text-align: left;
+    text-transform: uppercase;
+    background-color: var(--blue);
     cursor: pointer;
 }
 
@@ -352,7 +375,7 @@ nav img {
     display: none;
 }
 
-.confirmation-page{
+.confirmation-page {
     width: 100vw;
     height: 100vh;
     margin: 0 auto;
@@ -370,7 +393,7 @@ nav img {
     height: 100vh;
 }
 
-.order-details p{
+.order-details p {
     font-family: "M PLUS Rounded 1c";
     font-size: 20px;
     font-weight: 900;
@@ -384,7 +407,7 @@ nav img {
     height: auto;
 }
 
-.header-success{
+.header-success {
     height: 100vh;
     width: 50vw;
     margin-top: -55px;
@@ -395,30 +418,30 @@ nav img {
     text-align: center;
 }
 
-.header-success-content-info{
+.header-success-content-info {
     margin-top: -55px;
 }
 
-.header-success-content-info h4{
+.header-success-content-info h4 {
     color: white;
 }
 
-.header-success-content-info span{
+.header-success-content-info span {
     font-family: "M PLUS Rounded 1c";
     font-size: 14px;
     font-weight: 900;
 }
 
-.header-success-content-info  p{
+.header-success-content-info p {
     font-family: "M PLUS Rounded 1c";
     font-size: 14px;
 }
 
-#order-image{
+#order-image {
     width: 375px;
 }
 
-#order-name{
+#order-name {
     font-size: 32px;
     color: var(--yellow);
     margin: 5px;
@@ -427,7 +450,7 @@ nav img {
     font-weight: 900;
 }
 
-.order-status{
+.order-status {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -437,12 +460,12 @@ nav img {
     text-align: center;
 }
 
-.japanese-text{
+.japanese-text {
     color: var(--yellow);
     font-family: "M PLUS Rounded 1c";
 }
 
-.eng-text{
+.eng-text {
     color: var(var(--red)) !important;
     font-family: "M PLUS Rounded 1c";
 }
@@ -457,8 +480,8 @@ nav img {
     font-size: 1rem;
 }
 
-@media screen and (max-width: 393px) and (max-height: 852px){
-    #main-content{
+@media screen and (max-width: 393px) and (max-height: 852px) {
+    #main-content {
         width: 400px;
         overflow: hidden;
     }
@@ -470,8 +493,8 @@ nav img {
         margin-top: -25px;
         padding: 10px;
     }
-   
-    #hero-ilustrations{
+
+    #hero-ilustrations {
         width: 400px;
         padding: 0;
         margin: 0;
@@ -481,37 +504,37 @@ nav img {
         align-items: center;
     }
 
-    .elipse{
+    .elipse {
         width: 310px;
         height: 310px;
         position: absolute;
     }
 
-    .delivery img{
+    .delivery img {
         width: 350px;
         height: 350px;
         position: relative;
         margin-top: 755px;
     }
 
-    .blue-baloon img{
+    .blue-baloon img {
         position: absolute;
         width: 65px;
         margin-top: 595px;
         margin-left: 20px;
-        
+
     }
 
-    .yellow-baloon{
+    .yellow-baloon {
         margin-left: 230px;
         margin-top: -260px;
     }
 
-    .yellow-baloon img{
+    .yellow-baloon img {
         width: 75px;
     }
 
-    #hero-bundle{
+    #hero-bundle {
         display: flex;
         flex-direction: column;
         justify-items: center;
@@ -523,11 +546,11 @@ nav img {
         padding: 0;
     }
 
-    .hero-text-bundle{
+    .hero-text-bundle {
         padding: 15px;
     }
 
-    .hero-text-title{
+    .hero-text-title {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -536,27 +559,27 @@ nav img {
         padding: 0;
     }
 
-    .hero-text-title h1{
+    .hero-text-title h1 {
         width: 250px;
         position: relative;
         margin: 20px;
         padding: 0;
     }
 
-    .hero-text-title h2{
+    .hero-text-title h2 {
         margin: 10px;
         padding: 0;
         position: inherit;
     }
 
-    .hero-text-btn p{
+    .hero-text-btn p {
         margin: 15px;
         width: 285px;
         text-align: center;
         font-size: 15px;
     }
 
-    .hero-text-btn{
+    .hero-text-btn {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -568,7 +591,7 @@ nav img {
         display: none;
     }
 
-    .order-instruction{
+    .order-instruction {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -577,7 +600,7 @@ nav img {
         margin: 0;
     }
 
-    .order-instruction h3{
+    .order-instruction h3 {
         font-size: 28px;
     }
 
@@ -591,12 +614,12 @@ nav img {
         box-shadow: 5px 4px 15px var(--shadow);
     }
 
-    .order-instruction h6{
+    .order-instruction h6 {
         width: 350px;
         font-weight: bold;
     }
-    
-    .order-bundle{
+
+    .order-bundle {
         margin-top: 10px;
         overflow-x: scroll;
         scrollbar-width: none;
@@ -614,11 +637,11 @@ nav img {
 
     /*confirmation page*/
 
-    
+
 }
 
-@media screen and (max-width: 430px) and (max-height: 932px){
-    #main-content{
+@media screen and (max-width: 430px) and (max-height: 932px) {
+    #main-content {
         width: 430px;
         overflow: hidden;
     }
@@ -629,8 +652,8 @@ nav img {
         justify-content: center;
         padding-bottom: 15px;
     }
-   
-    #hero-ilustrations{
+
+    #hero-ilustrations {
         width: 430px;
         padding: 0;
         margin: 0 auto;
@@ -640,13 +663,13 @@ nav img {
         align-items: center;
     }
 
-    .elipse{
-        width:310px;
-        height:310px;
+    .elipse {
+        width: 310px;
+        height: 310px;
         position: absolute;
     }
 
-    .delivery img{
+    .delivery img {
         width: 345px;
         height: 345px;
         position: relative;
@@ -654,24 +677,24 @@ nav img {
         margin-left: 10px;
     }
 
-    .blue-baloon img{
+    .blue-baloon img {
         position: absolute;
         width: 65px;
         margin-top: 590px;
         margin-left: 35px;
-        
+
     }
 
-    .yellow-baloon{
+    .yellow-baloon {
         margin-left: 235px;
         margin-top: -260px;
     }
 
-    .yellow-baloon img{
+    .yellow-baloon img {
         width: 70px;
     }
 
-    #hero-bundle{
+    #hero-bundle {
         display: flex;
         flex-direction: column;
         justify-items: center;
@@ -683,11 +706,11 @@ nav img {
         padding: 0;
     }
 
-    .hero-text-bundle{
+    .hero-text-bundle {
         padding: 5px;
     }
 
-    .hero-text-title{
+    .hero-text-title {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -696,27 +719,27 @@ nav img {
         padding: 0;
     }
 
-    .hero-text-title h1{
+    .hero-text-title h1 {
         width: 250px;
         position: relative;
         margin: 20px;
         padding: 0;
     }
 
-    .hero-text-title h2{
+    .hero-text-title h2 {
         margin: 10px;
         padding: 0;
         position: inherit;
     }
 
-    .hero-text-btn p{
+    .hero-text-btn p {
         margin: 15px;
         width: 285px;
         text-align: center;
         font-size: 15px;
     }
 
-    .hero-text-btn{
+    .hero-text-btn {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -738,12 +761,12 @@ nav img {
         box-shadow: 5px 4px 15px var(--shadow);
     }
 
-    .order-instruction h6{
+    .order-instruction h6 {
         width: 350px;
         font-weight: bold;
     }
-    
-    .order-bundle{
+
+    .order-bundle {
         margin-top: 10px;
         overflow-x: scroll;
         scrollbar-width: none;
@@ -751,9 +774,9 @@ nav img {
 
 }
 
-@media screen and (max-width: 480px) and (max-height: 1040px){
+@media screen and (max-width: 480px) and (max-height: 1040px) {
 
-    #main-content{
+    #main-content {
         width: 480px;
         overflow: hidden;
     }
@@ -765,11 +788,11 @@ nav img {
         padding-bottom: 15px;
     }
 
-    nav img{
+    nav img {
         margin-left: -15px;
     }
-   
-    #hero-ilustrations{
+
+    #hero-ilustrations {
         width: 480px;
         padding: 0;
         margin: 0 auto;
@@ -779,13 +802,13 @@ nav img {
         align-items: center;
     }
 
-    .elipse{
-        width:380px;
-        height:380px;
+    .elipse {
+        width: 380px;
+        height: 380px;
         position: absolute;
     }
 
-    .delivery img{
+    .delivery img {
         width: 430px;
         height: 430px;
         position: relative;
@@ -793,24 +816,24 @@ nav img {
         margin-left: 10px;
     }
 
-    .blue-baloon img{
+    .blue-baloon img {
         position: absolute;
         width: 65px;
         margin-top: 615px;
         margin-left: 35px;
-        
+
     }
 
-    .yellow-baloon{
+    .yellow-baloon {
         margin-left: 315px;
         margin-top: -300px;
     }
 
-    .yellow-baloon img{
+    .yellow-baloon img {
         width: 75px;
     }
 
-    #hero-bundle{
+    #hero-bundle {
         display: flex;
         flex-direction: column;
         justify-items: center;
@@ -822,11 +845,11 @@ nav img {
         padding: 0;
     }
 
-    .hero-text-bundle{
+    .hero-text-bundle {
         padding: 5px;
     }
 
-    .hero-text-title{
+    .hero-text-title {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -835,27 +858,27 @@ nav img {
         padding: 0;
     }
 
-    .hero-text-title h1{
+    .hero-text-title h1 {
         width: 250px;
         position: relative;
         margin: 20px;
         padding: 0;
     }
 
-    .hero-text-title h2{
+    .hero-text-title h2 {
         margin: 10px;
         padding: 0;
         position: inherit;
     }
 
-    .hero-text-btn p{
+    .hero-text-btn p {
         margin: 15px;
         width: 285px;
         text-align: center;
         font-size: 15px;
     }
 
-    .hero-text-btn{
+    .hero-text-btn {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -877,12 +900,12 @@ nav img {
         box-shadow: 5px 4px 15px var(--shadow);
     }
 
-    .order-instruction h6{
+    .order-instruction h6 {
         width: 350px;
         font-weight: bold;
     }
-    
-    .order-bundle{
+
+    .order-bundle {
         margin-top: 10px;
         overflow-x: scroll;
         scrollbar-width: none;

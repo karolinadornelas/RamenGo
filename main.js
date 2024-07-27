@@ -73,13 +73,24 @@ document.addEventListener("DOMContentLoaded", async () => {
   let selected_broth_id = null;
   let selected_protein_id = null;
 
-  function createButton(item, type) {
-    const button = document.createElement("div");
-    button.className = "option-card";
-    button.dataset.id = item.id;
-    button.dataset.type = type;
+  orderButton.classList.add("inactive-button");
 
-    button.innerHTML = `
+  function stateOrderButton() {
+    orderButton.classList.remove("active-button", "inactive-button");
+    if (selected_broth_id && selected_protein_id) {
+      orderButton.classList.add("active-button");
+    } else {
+      orderButton.classList.add("inactive-button");
+    }
+  }
+
+  function createCard(item, type) {
+    const card = document.createElement("div");
+    card.className = "option-card";
+    card.dataset.id = item.id;
+    card.dataset.type = type;
+
+    card.innerHTML = `
       <div class="option-card" card-active-img="/assets/${item.name}/active.png" card-inactive-img="/assets/${item.name}/inactive.png">
         <img src="/assets/${item.name}/inactive.png" alt="${item.name}">
         <h4>${item.name}</h4>
@@ -89,8 +100,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log("Inactive image path:", `/assets/${item.name}/inactive.png`);
     console.log("Active image path:", `/assets/${item.name}/active.png`);
 
-    button.addEventListener("click", () => {
-      const chosenOption = button.classList.contains("selected");
+    card.addEventListener("click", () => {
+      const chosenOption = card.classList.contains("selected");
       document
         .querySelectorAll(`.option-card[data-type='${type}']`)
         .forEach((b) => {
@@ -102,11 +113,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
 
       if (!chosenOption) {
-        button.classList.add("selected");
-        const activeImg = button
+        card.classList.add("selected");
+        const activeImg = card
           .querySelector("div")
           .getAttribute("card-active-img");
-        button.querySelector("img").src = activeImg;
+        card.querySelector("img").src = activeImg;
         if (type === "broth") {
           selected_broth_id = item.id;
           console.log("selected broth:", selected_broth_id);
@@ -121,15 +132,16 @@ document.addEventListener("DOMContentLoaded", async () => {
           selected_protein_id = null;
         }
       }
-    });
 
-    return button;
+      stateOrderButton();
+    });
+    return card;
   }
 
   async function loadBroths() {
     const broths = await optionBroth();
     broths.forEach((broth) => {
-      const button = createButton(broth, "broth");
+      const button = createCard(broth, "broth");
       brothsContainer.appendChild(button);
     });
   }
@@ -137,7 +149,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   async function loadProteins() {
     const proteins = await optionProtein();
     proteins.forEach((protein) => {
-      const button = createButton(protein, "protein");
+      const button = createCard(protein, "protein");
       proteinsContainer.appendChild(button);
     });
   }
